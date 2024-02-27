@@ -4,4 +4,5 @@ interface Items {
     description?: string; // Optional description of the item
     price: number; // Price of the item
     image?: string; // Optional URL or path to an image of the item
+    rating: number;
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, FlatList, Text, TouchableOpacity, Image } from 'react-native';
 
 // Define sample categories data
-const categories: Items[] = [
+const categories = [
   { id: 1, name: 'Category 1', image: 'https://via.placeholder.com/150', price: 10 },
   { id: 2, name: 'Category 2', image: 'https://via.placeholder.com/150', price: 20 },
   { id: 3, name: 'Category 3', image: 'https://via.placeholder.com/150', price: 30 },
@@ -28,7 +28,7 @@ const TopCategories = (prop: any) => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
       />
-      <TouchableOpacity style={{ padding: 10, marginTop: 10 }}>
+      <TouchableOpacity style={{ padding: 10, marginTop: 10 }} onPress={() => {prop.nav.navigate("Products")}}>
         <Text style={{ textAlign: 'center' }}>See all ></Text>
       </TouchableOpacity>
     </View>
