@@ -61,7 +61,7 @@ const TopSellings = (prop: any) => {
 
   return (
     <View style={styles.sectionContainer}>
-        <Text style={styles.sectionTitle}>Top Sellings Products</Text>
+        <Text style={styles.sectionTitle}>Top Sellings On EasyBuy</Text>
         <ScrollView horizontal={true}>
           {TopSellingsProducts.map((product) => renderProduct(product))}
         </ScrollView>

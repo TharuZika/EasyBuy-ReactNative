@@ -1,7 +1,9 @@
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 
 const FeaturedProducts = (prop: any) => {
+
+    const [successMessage, setSuccessMessage] = useState('');
 
     const featuredProducts: Items[] = [
         { id: 1, name: 'Product 1', image: 'https://rukminim2.flixcart.com/image/450/500/xif0q/shoe/7/z/r/8-white-leaf-8-urbanbox-white-black-original-imagvgf4cuzs2hrw.jpeg?q=90&crop=true', price: 25, rating: 3.5 },
@@ -48,16 +50,23 @@ const FeaturedProducts = (prop: any) => {
 
       const handleAddToCart = (product: Items) => {
         // Implement your logic to add the product to the cart
-        prop.nav.navigate("Cart");
+        // prop.nav.navigate("Cart");
+        setSuccessMessage(`Successfully added ${product.name} to cart!`);
+        setTimeout(() => {
+          setSuccessMessage('');
+        }, 3000);
         console.log('Added to cart:', product);
       };
 
   return (
     <View style={styles.sectionContainer}>
-        <Text style={styles.sectionTitle}>Featured Products</Text>
+        <Text style={styles.sectionTitle}>Just For You</Text>
         <ScrollView horizontal={true}>
           {featuredProducts.map((product) => renderProduct(product))}
         </ScrollView>
+        {successMessage ? (
+        <Text style={styles.successMessage}>{successMessage}</Text>
+      ) : null}
       </View>
   )
 }
@@ -107,6 +116,12 @@ const styles = StyleSheet.create({
   },
   addToCartButtonText: {
     color: 'white',
+    textAlign: 'center',
+  },
+  successMessage: {
+    marginTop: 10,
+    fontSize: 16,
+    color: 'green',
     textAlign: 'center',
   },
 });

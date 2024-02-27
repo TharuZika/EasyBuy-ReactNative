@@ -2,6 +2,11 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 
 const BottomBar = (props: any) => {
+  function logout(): void {
+    
+    props.nav.navigate('Login')
+  }
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => props.nav.navigate('Home')}>
@@ -13,7 +18,7 @@ const BottomBar = (props: any) => {
       <TouchableOpacity onPress={() => props.nav.navigate('Cart')}>
         <Image source={require('../../assets/images/cart.png')} style={styles.icon} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => props.nav.navigate('Login')}>
+      <TouchableOpacity onPress={logout}>
         <Image source={require('../../assets/images/profile.png')} style={styles.icon} />
       </TouchableOpacity>
     </View>

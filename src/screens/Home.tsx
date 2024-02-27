@@ -12,8 +12,8 @@ const Home = (prop: any) => {
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <HeroSection nav={nav} />
-        <FeaturedProducts nav={nav} />
         <TopCategories nav={nav} />
+        <FeaturedProducts nav={nav} />
         <TopSellings nav={nav} />
       </ScrollView>
       <BottomBar nav={nav} />
